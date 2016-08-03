@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: app
+spec:
+  to:
+    kind: Service
+    name: app
+  port:
+    targetPort: app

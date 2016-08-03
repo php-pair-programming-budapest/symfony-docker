@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: app
+spec:
+  triggers:
+    -
+      type: GitHub
+      github:
+        secret: 59uj98rewjg987rdhg987rhg45t45t45t
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/php-pair-programming-budapest/symfony-docker'
+      ref: master
+  strategy:
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'app:latest'
+---
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: web
+spec:
+  triggers:
+    -
+      type: GitHub
+      github:
+        secret: 45t45t45t45z45zu64ju64ju65j665uj7u
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/php-pair-programming-budapest/symfony-docker'
+      ref: master
+    contextDir: etc/docker/prod/web
+  strategy:
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'web:latest'
