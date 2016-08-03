@@ -1,0 +1,15 @@
+# General
+.git/
+etc/
+!etc/docker/prod/
+
+# Symfony
+app/config/parameters.yml
+var/
+!var/SymfonyRequirements.php
+vendor/
+web/app_dev.php
+web/config.php
+
+# Frontend
+web/bundles/
